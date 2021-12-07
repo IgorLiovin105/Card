@@ -1,0 +1,131 @@
+@import "nullstyle.scss";
+
+$mainbg: #0d192b;
+$cardbg: #14253d;
+$titlecolor: #fff;
+$textcolor: #8bacda;
+$ff: 'Outfit', sans-serif;
+$fztitle: 16px;
+$fztext: 12px;
+$lh: 20px;
+$infolinkcolor: #00fff7;
+
+@mixin abs-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    background: $mainbg;
+}
+
+.card {
+    @include abs-center;
+    background: $cardbg;
+    box-shadow: 0 20px 3px 15px rgba(13, 24, 39, 0.2), 0 20px 3px 35px rgba(20, 37, 61, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card__img {
+    width: 200px;
+    height: 200px;
+    background: url("../SRC/nft-preview-card-component-main/images/image-equilibrium.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 5px;
+    cursor: pointer;
+    & img {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+    &:hover {
+        background: url("../SRC/nft-preview-card-component-main/images/image-equilibrium-active.jpg");
+        & img {
+            display: block;
+        }
+    }
+}
+
+.card__title {
+    font-size: $fztitle;
+    font-family: $ff;
+    color: $titlecolor;
+    margin: 15px 0 8px 0;
+    cursor: pointer;
+    &:hover {
+        color: $infolinkcolor;
+    }
+}
+
+.card__text {
+    font-family: $ff;
+    font-size: $fztext;
+    color: $textcolor;
+    font-weight: 300;
+    line-height: $lh;
+    margin-bottom: 15px;
+}
+
+.card__info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2f415b;
+}
+
+.info__item {
+    display: flex;
+    align-items: center;
+    &:nth-child(1) .info__link {
+        color: $infolinkcolor;
+    }
+}
+.info__link {
+    margin-left: 5px;
+    font-size: $fztext;
+    font-family: $ff;
+    color: $textcolor;
+    font-weight: 300;
+}
+
+.card__user {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.user__icon {
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+    background: #fff;
+    border-radius: 50%;
+    & img {
+        width: 23px;
+    }
+}
+
+.user__text {
+    font-size: $fztext;
+    font-family: $ff;
+    color: $textcolor;
+    font-weight: 300;
+    margin-left: 10px;
+    span {
+        color: $titlecolor;
+        cursor: pointer;
+        &:hover {
+            color: $infolinkcolor;
+        }
+    }
+}
